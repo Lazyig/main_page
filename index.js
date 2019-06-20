@@ -6,17 +6,19 @@ const app = express();
 
 const PORT = 30000;
 
+app.use((req, res) => {
+    res.status(404);
+    fs.readFile('404.html', (err, data) => {
+        res.end(data);
+    });
+});
+
 app.get('/', (req, res) => {
     fs.readFile('index.html', (err, data) => {
         res.end(data);
     });
 });
 
-app.get('/404', (req, res) => {
-    fs.readFile('404.html', (err, data) => {
-        res.end(data);
-    });
-});
 
 app.listen(PORT, (err) => {
     console.log('Main Page Server On');
