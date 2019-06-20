@@ -6,11 +6,9 @@ const app = express();
 
 const PORT = 30000;
 
-app.use((req, res) => {
-    res.status(404);
-    
+app.use((req, res, next) => {
     fs.readFile('404.html', (err, data) => {
-        res.end(data);
+        res.end(data, 404);
     });
 });
 
