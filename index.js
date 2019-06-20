@@ -6,6 +6,8 @@ const app = express();
 
 const PORT = 30000;
 
+app.use(express.static('static'));
+
 app.get('/', (req, res) => {
     fs.readFile('index.html', (err, data) => {
         res.end(data);
