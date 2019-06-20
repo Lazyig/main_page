@@ -12,6 +12,12 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/404', (req, res) => {
+    fs.readFile('404.html', (err, data) => {
+        res.end(data);
+    });
+});
+
 app.listen(PORT, (err) => {
     console.log('Main Page Server On');
     console.log('Port : ' + PORT);
