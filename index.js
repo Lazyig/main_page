@@ -9,13 +9,13 @@ const PORT = 30000;
 app.use(express.static("static"));
 
 app.get("/", (req, res) => {
-  fs.readFile("index.html", (err, data) => {
+  fs.readFile("src/index.html", (err, data) => {
     res.end(data);
   });
 });
 
 app.use((req, res, next) => {
-  fs.readFile("404.html", (err, data) => {
+  fs.readFile("src/404.html", (err, data) => {
     return res.status(404).end(data, 404);
   });
 });
